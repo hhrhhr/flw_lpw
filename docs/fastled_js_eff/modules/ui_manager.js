@@ -114,6 +114,16 @@ function createButton(element) {
     button.classList.remove('active');
   });
 
+  button.addEventListener('touchstart', () => {
+    button.setAttribute('data-pressed', 'true');
+    button.classList.add('active');
+  }, { passive: true });
+
+  button.addEventListener('touchend', () => {
+    button.setAttribute('data-pressed', 'false');
+    button.classList.remove('active');
+  });
+
   button.addEventListener('mouseleave', () => {
     button.setAttribute('data-pressed', 'false');
     button.classList.remove('active');
